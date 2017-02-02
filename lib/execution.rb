@@ -1,5 +1,5 @@
 # Time complexity is quadratic O(n**2) since it loops twice through n
-def my_min(arr)
+def my_min_quad(arr)
   arr.each do |el1|
     el1_smaller = true
 
@@ -13,7 +13,7 @@ def my_min(arr)
 end
 
 # Time complexity is linear O(n) since it loops once through n
-def my_min2(arr)
+def my_min_linear(arr)
   min = 0
   arr.each { |el| min = el if el < min }
   min
