@@ -38,3 +38,7 @@ def largest_contiguous_subsum(arr)
   sums = sub_arrs.map { |sub| sub.inject(:+) }
   sums.max
 end
+
+def largest_contiguous_subsum2(arr)
+  
+end
