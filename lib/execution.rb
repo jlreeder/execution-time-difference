@@ -42,21 +42,21 @@ def largest_contiguous_subsum(arr)
 end
 
 def largest_contiguous_subsum2(arr)
+  return arr.max if arr.all?(&:negative?)
+
   best_max = 0
   running_max = 0
 
   arr.each do |el|
-    best_max = running_max if running_max > best_max
+    running_max += el
 
-    debugger
-    if running_max + el > running_max
-      running_max += el
-    else
-      best_max = running_max
-      sum_of_both = running_max + el
-      running_max = sum_of_both > el ? sum_of_both : el
+    if running_max < 0
+      running_max = 0
+      next
     end
+
+    best_max = running_max if running_max > best_max
   end
 
-  best_max > running_max ? best_max : running_max
+  best_max
 end
