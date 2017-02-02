@@ -14,5 +14,7 @@ end
 
 # Time complexity is linear O(n) since it loops once through n
 def my_min2(arr)
-  arr.inject(0) { |minimum, el| minimum = el if el < minimum }
+  min = 0
+  arr.each { |el| min = el if el < min }
+  min
 end
