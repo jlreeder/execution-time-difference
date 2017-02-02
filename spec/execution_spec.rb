@@ -6,3 +6,10 @@ describe '#my_min' do
     expect(my_min(list)).to eq(-5)
   end
 end
+
+describe '#my_min2' do
+  it 'finds the smallest number in a list' do
+    list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
+    expect(my_min2(list)).to eq(-5)
+  end
+end
