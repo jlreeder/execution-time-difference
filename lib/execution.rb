@@ -18,3 +18,23 @@ def my_min_linear(arr)
   arr.each { |el| min = el if el < min }
   min
 end
+
+# Time complexity is O(n * n**2) ???
+#  - Finding subarrays costs n**2 loops then n more for slicing
+#  - Finding sums costs n then n more for inject
+#  - Finding max of sums costs 1
+def largest_contiguous_subsum(arr)
+  sub_arrs = []
+
+  # All subarrays
+  arr.length.times do |i|
+    arr.length.times do |j|
+      slice = arr[i..j]
+      sub_arrs << slice unless slice.empty?
+    end
+  end
+
+  # Sums
+  sums = sub_arrs.map { |sub| sub.inject(:+) }
+  sums.max
+end
